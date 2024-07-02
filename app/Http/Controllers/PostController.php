@@ -94,4 +94,16 @@ class PostController extends Controller
             'data' => $post
         ]);
     }
+
+    public function destroy($id){
+
+        //delete post by Id
+        Post::where('id', $id)->delete();
+
+        //return response
+        return response('id', $id)->delete([
+            'success' => true,
+            'message' => 'Data Post Berhasil Dihapus!',
+        ]);
+    }
 }
